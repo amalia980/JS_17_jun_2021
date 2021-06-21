@@ -32,15 +32,40 @@ const myUl = document.getElementById("ul");
 const mybutton4 = document.getElementById("button4");
 
     function getFilms() {
-        fetch("https://swapi.dev/api/films")
+        fetch("https://swapi.dev/api/films/")
         .then(res => res.json())
-        .then(data => {
-            myUl.innerHTML = `<li>${data.results[0]}</li>`;
+        .then(data => {    
+            myUl.innerHTML = `<li>${data.results}</li>`;
             console.log(data.results);
-        });
+        })
     }
 
     mybutton4.addEventListener("click", getFilms);
 
 // listeners
+/*
+mybutton4.addEventListener("click" () => {
+    fetch("")
+})
+*/
 
+/*============================ Part #5 CANVAS =============================*/
+
+var x = 0;
+
+function draw() {
+    window.requestAnimationFrame(draw);
+    const myCanvas = document.getElementById("canvas");
+    const ctx = myCanvas.getContext("2d");  
+
+    ctx.clearRect(0, 0, myCanvas.width, canvas.height);
+
+    ctx.font = "50px Verdana";  
+    ctx.fillStyle = "red";
+    ctx.fillText("AMALIA", 150, 150 ); // the text is centered
+
+    ctx.fillRect(x, 150, 50, 50);
+    x += 2;
+}
+
+draw();
